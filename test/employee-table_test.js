@@ -116,7 +116,6 @@ suite('EmployeeTable', () => {
     const deleteSpy = sinon.spy();
     el.addEventListener('delete', deleteSpy);
 
-    // Mock Redux store
     const toastSpy = sinon.spy(store, 'dispatch');
 
     el.openModal(employees[0].id);

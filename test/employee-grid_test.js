@@ -47,7 +47,6 @@ suite('EmployeeGrid', () => {
       'The grid should render the correct number of employees'
     );
 
-    // Verify content of the first employee
     const firstEmployee = gridItems[0];
     assert.include(
       firstEmployee.innerHTML,

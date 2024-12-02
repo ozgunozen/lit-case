@@ -93,7 +93,6 @@ suite('TextInput', () => {
     input.dispatchEvent(new Event('focus'));
     await el.updateComplete;
 
-    // Verify focus state by class or attribute
     assert.isTrue(input.matches(':focus'), 'Input is focused');
   });
 

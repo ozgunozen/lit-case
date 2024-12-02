@@ -63,7 +63,6 @@ suite('EmployeeForm', () => {
   });
 
   test('checks for duplicate phone number and email', async () => {
-    // Set up existing employees in the store
     const employee = {
       id: 999,
       dateOfEmployment: '2020-01-15',

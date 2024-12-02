@@ -2,9 +2,9 @@ import {html, css, LitElement} from 'lit';
 
 export class PaginationComponent extends LitElement {
   static properties = {
-    currentPage: {type: Number}, // Current active page
-    totalPages: {type: Number}, // Total number of pages
-    maxVisiblePages: {type: Number}, // Maximum number of page buttons to display
+    currentPage: {type: Number},
+    totalPages: {type: Number},
+    maxVisiblePages: {type: Number},
   };
 
   static styles = css`
@@ -66,7 +66,7 @@ export class PaginationComponent extends LitElement {
     super();
     this.currentPage = 1;
     this.totalPages = 1;
-    this.maxVisiblePages = 5; // Default to showing 5 pages
+    this.maxVisiblePages = 5;
   }
 
   dispatchPageChange(page) {

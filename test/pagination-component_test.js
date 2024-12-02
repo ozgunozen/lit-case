@@ -1,6 +1,6 @@
 import {html, fixture, assert} from '@open-wc/testing';
-import sinon from 'sinon'; // For mocking and spying
-import {PaginationComponent} from '../src/components/pagination-component'; // Adjust the path as needed
+import sinon from 'sinon';
+import {PaginationComponent} from '../src/components/pagination-component';
 
 suite('PaginationComponent', () => {
   test('is defined', () => {

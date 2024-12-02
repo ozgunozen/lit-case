@@ -18,7 +18,6 @@ export class EditPage extends LitElement {
   }
 
   onBeforeEnter(location) {
-    // Access the `id` parameter from the URL
     this.id = location.params.id;
   }
 

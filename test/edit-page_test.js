@@ -1,6 +1,6 @@
 import {html, fixture, assert} from '@open-wc/testing';
 import sinon from 'sinon';
-import '../src/pages/edit-page.js'; // Adjust the path to your component
+import '../src/pages/edit-page.js';
 import store from '../src/store/index.js';
 import {updateEmployee} from '../src/store/reducers/employeesReducer.js';
 import {showToast} from '../src/store/reducers/appReducer.js';
@@ -12,14 +12,12 @@ suite('EditPage', () => {
   let routerSpy;
 
   setup(() => {
-    // Mock Redux store state
     getStateStub = sinon.stub(store, 'getState').returns({
       employees: [
         {id: '1', firstName: 'John', lastName: 'Doe', department: 'Tech'},
       ],
     });
 
-    // Spy on store.dispatch and Router.go
     dispatchSpy = sinon.spy(store, 'dispatch');
     routerSpy = sinon.spy(Router, 'go');
   });

@@ -36,7 +36,6 @@ suite('ToastMessage', () => {
   test('renders toast message when visible', async () => {
     const el = await fixture(html`<toast-message></toast-message>`);
 
-    // Simulate state change
     store.dispatch(showToast({message: 'Test Message', isVisible: true}));
     await el.updateComplete;
 
@@ -63,13 +62,12 @@ suite('ToastMessage', () => {
     const clock = sinon.useFakeTimers();
     const el = await fixture(html`<toast-message></toast-message>`);
 
-    // Simulate state change
     store.dispatch(showToast({message: 'Auto Hide Test', isVisible: true}));
     await el.updateComplete;
 
     assert.isTrue(el.isVisible, 'Toast is visible');
 
-    clock.tick(3000); // Fast-forward 3 seconds
+    clock.tick(3000);
     await el.updateComplete;
 
     assert.isFalse(el.isVisible, 'Toast is hidden after 3 seconds');
@@ -84,14 +82,12 @@ suite('ToastMessage', () => {
   test('updates correctly when the store state changes', async () => {
     const el = await fixture(html`<toast-message></toast-message>`);
 
-    // First state change
     store.dispatch(showToast({message: 'First Message', isVisible: true}));
     await el.updateComplete;
 
     assert.equal(el.message, 'First Message', 'Message updates to first state');
     assert.isTrue(el.isVisible, 'isVisible updates to first state');
 
-    // Second state change
     store.dispatch(showToast({message: 'Second Message', isVisible: true}));
     await el.updateComplete;
 
