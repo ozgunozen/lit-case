@@ -1,10 +1,8 @@
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
 import {legacyPlugin} from '@web/dev-server-legacy';
+import {fromRollup} from '@web/dev-server-rollup';
+import replace from '@rollup/plugin-replace';
+
+const replacePlugin = fromRollup(replace);
 
 const mode = process.env.MODE || 'dev';
 if (!['dev', 'prod'].includes(mode)) {
@@ -14,12 +12,20 @@ if (!['dev', 'prod'].includes(mode)) {
 export default {
   nodeResolve: {exportConditions: mode === 'dev' ? ['development'] : []},
   preserveSymlinks: true,
+  static: {
+    directory: 'public',
+  },
+  spa: true,
   plugins: [
     legacyPlugin({
       polyfills: {
-        // Manually imported in index.html file
         webcomponents: false,
       },
     }),
+    replacePlugin({
+      preventAssignment: true,
+      'process.env.NODE_ENV': JSON.stringify(mode === 'dev' ? 'development' : 'production'),
+    }),
   ],
+  appIndex: './index.html',
 };
